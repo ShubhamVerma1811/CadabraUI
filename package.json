@@ -1,0 +1,92 @@
+{
+  "name": "cadabraui",
+  "version": "0.0.1-alpha.2",
+  "license": "MIT",
+  "author": "Shubham Verma",
+  "main": "dist/index.js",
+  "module": "dist/cadabraui.esm.js",
+  "typings": "dist/index.d.ts",
+  "keywords": [
+    "cadabraui",
+    "react",
+    "ui",
+    "tailwindcss",
+    "components",
+    "library"
+  ],
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "dev": "tsdx watch",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "size": "size-limit",
+    "build": "tsdx build",
+    "format": "prettier --write src",
+    "prepare": "tsdx build",
+    "analyze": "size-limit --why",
+    "storybook": "start-storybook -p 6006",
+    "format:full": "prettier --write **/*",
+    "build-storybook": "build-storybook"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "size-limit": [
+    {
+      "path": "dist/cadabraui.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/cadabraui.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "dependencies": {
+    "unique-random-array": "^3.0.0"
+  },
+  "devDependencies": {
+    "tsdx": "^0.14.1",
+    "react": "^17.0.2",
+    "husky": "^6.0.0",
+    "tslib": "^2.2.0",
+    "postcss": "^7",
+    "react-dom": "^17.0.2",
+    "size-limit": "^4.10.2",
+    "typescript": "^4.2.4",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "@babel/core": "^7.13.16",
+    "@types/react": "^17.0.3",
+    "autoprefixer": "^9",
+    "babel-loader": "^8.2.2",
+    "@types/react-is": "^17.0.0",
+    "@types/react-dom": "^17.0.3",
+    "@storybook/react": "^6.2.9",
+    "@storybook/addons": "^6.2.9",
+    "@types/babel__core": "^7.1.14",
+    "@storybook/theming": "^6.2.9",
+    "@types/tailwindcss": "^2.0.2",
+    "storybook-dark-mode": "^1.0.7",
+    "rollup-plugin-cjs-es": "^1.0.1",
+    "@storybook/addon-a11y": "^6.2.9",
+    "@storybook/addon-info": "^5.3.21",
+    "rollup-plugin-postcss": "^4.0.0",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@types/storybook__addon-info": "^5.2.3",
+    "@size-limit/preset-small-lib": "^4.10.2",
+    "@tailwindcss/postcss7-compat": "^2.1.2"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "postcss": "^7",
+    "tailwindcss": "2.1.2",
+    "autoprefixer": "^9"
+  }
+}
