@@ -1,6 +1,6 @@
 # CadabraUI - A React UI Component library that generates the styles for you!
 
-Credits:
+Credits/Inspirations:
 
 - Supabase UI
 - BaseWeb
