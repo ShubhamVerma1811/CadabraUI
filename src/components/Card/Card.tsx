@@ -1,9 +1,9 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 import { Radius, Width } from '../../config/theme'
 import { Button } from '../Button/Button'
 
 export type CardProps = {
-  children: JSX.Element[]
+  children: ReactNode
   padding?: string
   title?: string
   subtitle?: string
@@ -85,7 +85,7 @@ const Media = ({ src, alt }: MediaProps): ReactElement => {
 }
 
 export type ContentProps = {
-  children?: JSX.Element[]
+  children?: ReactNode
   padding?: number
 }
 
@@ -96,7 +96,7 @@ const Content = ({ children, padding = 2 }: ContentProps): ReactElement => {
   return <div className={containerClasses.join(' ')}>{children}</div>
 }
 
-const Footer = ({ children }: { children?: JSX.Element[] }) => {
+const Footer = ({ children }: { children?: ReactNode }) => {
   return (
     <div>
       <div className='flex flex-row items-center overflow-hidden py-4'>
