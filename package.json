@@ -3,9 +3,14 @@
   "version": "0.0.1-alpha.2",
   "license": "MIT",
   "author": "Shubham Verma",
+  "description": "A React UI Component Librabry that generates the styles for you!",
   "main": "dist/index.js",
   "module": "dist/cadabraui.esm.js",
   "typings": "dist/index.d.ts",
+  "exports": {
+    "require": "./dist/cadabraui.cjs.production.js",
+    "import": "./dist/cadabraui.esm.js"
+  },
   "keywords": [
     "cadabraui",
     "react",
@@ -14,6 +19,11 @@
     "components",
     "library"
   ],
+  "homepage": "https://github.com/ShubhamVerma1811/CadabraUI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShubhamVerma1811/CadabraUI"
+  },
   "files": [
     "dist"
   ],
