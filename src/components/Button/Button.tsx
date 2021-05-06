@@ -65,6 +65,7 @@ const Button_Ghost = ({
   font = rando(fonts)(),
   radius = rando(radiuses)(),
   onClick,
+  block,
 }: ButtonProps) => {
   const buttonClasses = []
   buttonClasses.push(
@@ -72,6 +73,7 @@ const Button_Ghost = ({
   )
   buttonClasses.push(`text-${color}-${colorNum} font-${font}`)
 
+  block && buttonClasses.push(`w-full`)
   buttonClasses.push(getSize(size))
 
   if (radius === 'DEFAULT') {
@@ -81,7 +83,7 @@ const Button_Ghost = ({
   }
 
   return (
-    <div>
+    <div className={`${block && 'w-full'}`}>
       <button
         className={buttonClasses.join(' ')}
         type={type}
@@ -104,6 +106,7 @@ const Button_Contained = ({
   font = rando(fonts)(),
   radius = rando(radiuses)(),
   onClick,
+  block,
 }: ButtonProps) => {
   const buttonClasses = []
   buttonClasses.push(`bg-${bg}-${bgNum}`)
@@ -121,10 +124,11 @@ const Button_Contained = ({
     buttonClasses.push(`rounded-${radius}`)
   }
 
+  block && buttonClasses.push(`w-full`)
   buttonClasses.push(`text-${color}-${colorNum} font-${font}`)
 
   return (
-    <div>
+    <div className={`${block && 'w-full'}`}>
       <button
         className={buttonClasses.join(' ')}
         type={type}
