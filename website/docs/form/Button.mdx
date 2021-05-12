@@ -1,0 +1,204 @@
+import { Button } from '../../../.'
+import '../../src/css/custom.css'
+
+# Button
+
+## Usage
+
+```jsx
+<Button
+  label='Button'
+  variant='contained'
+  color='pink'
+  colorNum='300'
+  size='base'
+  radius='md'
+  onClick={() => alert('Hey there!')}
+/>
+```
+
+<Button
+  label='Button'
+  variant='contained'
+  color='pink'
+  colorNum='300'
+  size='base'
+  radius='md'
+  onClick={() => alert('Hey there!')}
+/>
+
+---
+
+## Variants
+
+Button variant can be access by using the `variant` attribute
+
+### Contained
+
+```jsx
+<Button
+  label='Button'
+  variant='contained'
+  color='pink'
+  colorNum='300'
+  size='base'
+  radius='md'
+/>
+```
+
+<Button
+  label='Button'
+  variant='contained'
+  color='pink'
+  colorNum='300'
+  size='base'
+  radius='md'
+/>
+
+---
+
+### Ghost
+
+```jsx
+<Button
+  label='Button'
+  variant='ghost'
+  color='pink'
+  colorNum='300'
+  size='base'
+  radius='md'
+/>
+```
+
+<Button
+  label='Button'
+  variant='ghost'
+  color='pink'
+  colorNum='300'
+  size='base'
+  radius='md'
+/>
+
+---
+
+### Text
+
+```jsx
+<Button
+  label='Button'
+  variant='text'
+  color='pink'
+  colorNum='300'
+  size='base'
+  radius='md'
+/>
+```
+
+<Button label='Button' variant='text' color='rose' colorNum='300' />
+
+---
+
+## Sizes
+
+```jsx
+<Button
+  label='Button'
+  variant='contained'
+  color='pink'
+  colorNum='300'
+  size='base' {/* 'xs' | 'sm' | 'base' | 'lg' |'xl' */}
+  radius='md'
+/>
+```
+
+<div className='flex flex-wrap md:justify-around justify-around md:items-center flex-col md:flex-row'>
+
+<Button
+  label='Button'
+  variant='contained'
+  color='red'
+  colorNum='700'
+  bg="fuchsia"
+  bgNum="200"
+  size='xs'
+  radius='md'
+/>
+
+<Button
+  label='Button'
+  variant='contained'
+  color='red'
+  colorNum='700'
+  size='sm'
+  bg="fuchsia"
+  bgNum="200"
+  radius='md'
+/>
+<Button
+  label='Button'
+  variant='contained'
+  color='red'
+  colorNum='700'
+  bg="fuchsia"
+  bgNum="200"
+  size='base'
+  radius='md'
+/>
+<Button
+  label='Button'
+  variant='contained'
+  color='red'
+  colorNum='700'
+  size='lg'
+  bg="fuchsia"
+  bgNum="200"
+  radius='md'
+/>
+<Button
+  label='Button'
+  variant='contained'
+  color='red'
+  colorNum='700'
+  size='xl'
+  bg="fuchsia"
+  bgNum="200"
+  radius='md'
+/>
+
+</div>
+
+---
+
+## API
+
+<table class='table-auto'>
+  <thead>
+    <tr>
+      <th>Props</th>
+      <th>Type</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>label</td>
+      <td>string</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>type?</td>
+      <td> 'button' | 'submit' | 'reset'</td>
+      <td>submit</td>
+    </tr>
+    <tr>
+      <td>variant</td>
+      <td> 'contained' | 'ghost' | 'text'</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td> 'xs' | 'sm' | 'base' | 'lg' |'xl'</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
