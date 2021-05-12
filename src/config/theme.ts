@@ -28,3 +28,10 @@ export { colors, range, fonts, radiuses }
 export type Radius = typeof radiuses[number]
 export type Range = typeof range[number]
 export type Width = keyof TailwindConfig['theme']['width']
+
+export type GlobalProps = {
+  color?: string
+  colorNum?: Range
+  bg?: string
+  bgNum?: Range
+}

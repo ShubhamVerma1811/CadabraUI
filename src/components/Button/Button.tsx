@@ -1,18 +1,14 @@
 import React, { MouseEventHandler, ReactElement, ReactNode } from 'react'
 import rando from 'unique-random-array'
 import { ButtonVariants, Size, sizes } from '../../config/ButtonConfig'
-import { colors, fonts, radiuses, Range, range } from '../../config/theme'
+import { colors, fonts, GlobalProps, radiuses, range } from '../../config/theme'
 
 // TODO Figure out the types for the props - type unknown bad
 
-export type ButtonProps = {
+export type ButtonProps = GlobalProps & {
   label: string
   type?: 'button' | 'submit' | 'reset'
   variant: ButtonVariants
-  color?: unknown
-  colorNum?: Range
-  bg?: unknown
-  bgNum?: Range
   size?: Size
   font?: unknown
   radius?: unknown
@@ -111,7 +107,7 @@ const Button_Contained = ({
   const buttonClasses = []
   buttonClasses.push(`bg-${bg}-${bgNum}`)
   if (bgNum !== 900) {
-    buttonClasses.push(` hover:bg-${bg}-${bgNum! + 100}`)
+    buttonClasses.push(` hover:bg-${bg}-${bgNum + 100}`)
   } else {
     buttonClasses.push(` hover:bg-${bg}-${bgNum - 100}`)
   }

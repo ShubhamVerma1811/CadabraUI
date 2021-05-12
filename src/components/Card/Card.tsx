@@ -4,13 +4,13 @@ import { Button } from '../Button/Button'
 
 export type CardProps = {
   children: ReactNode
-  padding?: string
   title?: string
   subtitle?: string
   headerImage?: { src: string; alt: string }
+  raised?: boolean
+  padding?: string
   radius?: Radius
   width?: Width
-  raised?: boolean
   font?: string
 }
 
@@ -34,17 +34,19 @@ export const Card = ({
     ? containerClasses.push('shadow drop-shadow')
     : containerClasses.push('border')
 
-  containerClasses.push(`relative overflow-hidden font-${font}`)
+  containerClasses.push(`container relative overflow-hidden font-${font}`)
   containerClasses.push(`flex flex-col justify-center`)
 
   radius && containerClasses.push(`rounded-${radius}`)
 
   width && containerClasses.push(`w-${width}`)
 
-  padding && parentClasses.push(`p-${padding} flex flex-col justify-between`)
-  contextClasses.push(`flex flex-col justify-between`)
+  padding &&
+    parentClasses.push(`parent p-${padding} flex flex-col justify-between`)
 
-  if (title || subtitle) titleClasses.push(`py-4`)
+  contextClasses.push(`context flex flex-col justify-between`)
+
+  if (title || subtitle) titleClasses.push(`title py-4`)
 
   return (
     <div className={containerClasses.join(' ')}>
@@ -89,17 +91,17 @@ export type ContentProps = {
   padding?: number
 }
 
-const Content = ({ children, padding = 2 }: ContentProps): ReactElement => {
-  const containerClasses: string[] = []
-  padding && containerClasses.push(`p-${padding}`)
+// const Content = ({ children, padding = 2 }: ContentProps): ReactElement => {
+//   const containerClasses: string[] = []
+//   padding && containerClasses.push(`p-${padding}`)
 
-  return <div className={containerClasses.join(' ')}>{children}</div>
-}
+//   return <div className={containerClasses.join(' ')}>{children}</div>
+// }
 
 const Footer = ({ children }: { children?: ReactNode }) => {
   return (
     <div>
-      <div className='flex flex-row items-center overflow-hidden py-4'>
+      <div className='flex flex-row items-center overflow-hidden pt-4'>
         {children}
       </div>
     </div>
@@ -108,5 +110,5 @@ const Footer = ({ children }: { children?: ReactNode }) => {
 
 Card.Button = Button
 Card.Media = Media
-Card.Content = Content
+// Card.Content = Content
 Card.Footer = Footer

@@ -1,9 +1,14 @@
 node_modules
 src/output.css
 dist
+build
 .cache
 *.lock
 .*
 .txt
 LICENSE
 storybook-static
+*.svg
+*.png
+*.jpg
+*.ico
