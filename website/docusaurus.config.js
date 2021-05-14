@@ -72,4 +72,12 @@ module.exports = {
     ],
   ],
   themes: ['@docusaurus/theme-live-codeblock'],
+  scripts: [
+    {
+      src: 'https://umami-azure.vercel.app/umami.js',
+      async: true,
+      defer: true,
+      'data-website-id': '2074faf3-cdef-451d-a66a-ad4fd7e16c9a',
+    },
+  ],
 }
