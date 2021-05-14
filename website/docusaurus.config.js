@@ -24,7 +24,7 @@ module.exports = {
           label: 'Docs',
         },
         {
-          href: 'https://github.com/ShubhamVerma1811/CadabraUI',
+          href: 'https://github.com/ShubhamVerma1811/CadabraUI/tree/dev',
           label: 'GitHub',
           position: 'right',
         },
@@ -47,7 +47,7 @@ module.exports = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/ShubhamVerma1811/CadabraUI',
+              href: 'https://github.com/ShubhamVerma1811/CadabraUI/tree/dev',
             },
           ],
         },
@@ -63,7 +63,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/ShubhamVerma1811/cadabraui/edit/dev/website/',
+            'https://github.com/ShubhamVerma1811/CadabraUI/tree/dev/edit/dev/website/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
