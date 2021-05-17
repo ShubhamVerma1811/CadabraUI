@@ -141,12 +141,22 @@ const Button_Text = ({
   type = 'submit',
   color = rando(colors)(),
   colorNum = rando(range)(),
+  bg = rando(colors)(),
   font = rando(fonts)(),
+  size = rando(sizes)() as Size,
+  radius = rando(radiuses)(),
   onClick,
 }: ButtonProps) => {
   const buttonClasses = []
-  buttonClasses.push('p-0 hover:underline')
+  buttonClasses.push(`p-0 hover:underline hover:bg-${bg}-${50}`)
   buttonClasses.push(`text-${color}-${colorNum} font-${font}`)
+  buttonClasses.push(getSize(size))
+
+  if (radius === 'DEFAULT') {
+    buttonClasses.push('rounded')
+  } else {
+    buttonClasses.push(`rounded-${radius}`)
+  }
 
   return (
     <div>
