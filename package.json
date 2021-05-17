@@ -86,6 +86,7 @@
     "rollup-plugin-cjs-es": "^1.0.1",
     "rollup-plugin-postcss": "^4.0.0",
     "size-limit": "^4.10.2",
+    "storybook-dark-mode": "^1.0.8",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "tsdx": "^0.14.1",
     "tslib": "^2.2.0",
