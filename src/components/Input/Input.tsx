@@ -63,8 +63,9 @@ const Input_Underline = ({
   inputClasses.push(`border-b-2  transition transform-all bg-transparent`)
 
   inputClasses.push(
-    `border-${bg}-${bgNum + 100} hover:border-${bg}-${bgNum +
-      200} focus:border-${bg}-${600} outline-none`
+    `border-${bg}-${bgNum + 100} hover:border-${bg}-${
+      bgNum + 200
+    } focus:border-${bg}-${600} outline-none`
   )
 
   containerClasses.push(`transition transform-all`)
@@ -82,7 +83,7 @@ const Input_Underline = ({
         placeholder={placeholder}
         className={inputClasses.join(' ')}
         id={label && label}
-        onChange={onChange ? event => onChange(event) : undefined}
+        onChange={onChange ? (event) => onChange(event) : undefined}
       />
     </div>
   )
@@ -102,9 +103,11 @@ const Input_Filled = ({
   const labelClasses: string[] = []
   const inputClasses = []
   containerClasses.push(
-    `border-b-2 border-${bg}-${bgNum +
-      200} focus-within:border-${bg}-${600} rounded-t p-2 bg-${bg}-${bgNum} hover:bg-${bg}-${bgNum +
-      100}`
+    `border-b-2 border-${bg}-${
+      bgNum + 200
+    } focus-within:border-${bg}-${600} rounded-t p-2 bg-${bg}-${bgNum} hover:bg-${bg}-${
+      bgNum + 100
+    }`
   )
 
   inputClasses.push(`bg-transparent`)
@@ -113,8 +116,9 @@ const Input_Filled = ({
   labelClasses.push(`text-xs text-gray-500`)
 
   inputClasses.push(
-    `border-${bg}-${bgNum + 100} hover:border-${bg}-${bgNum +
-      200} focus:border-${bg}-${600} outline-none`
+    `border-${bg}-${bgNum + 100} hover:border-${bg}-${
+      bgNum + 200
+    } focus:border-${bg}-${600} outline-none`
   )
 
   containerClasses.push(`transition transform-all`)
@@ -131,7 +135,7 @@ const Input_Filled = ({
         placeholder={placeholder}
         className={inputClasses.join(' ')}
         id={label && label}
-        onChange={onChange ? event => onChange(event) : undefined}
+        onChange={onChange ? (event) => onChange(event) : undefined}
         required={required && required}
       />
     </div>
@@ -150,8 +154,9 @@ const Input_Contained = ({
   const labelClasses: string[] = []
   const inputClasses = []
   containerClasses.push(
-    `border-2 border-${bg}-${bgNum +
-      100} focus-within:border-${bg}-${600} rounded p-2 `
+    `border-2 border-${bg}-${
+      bgNum + 100
+    } focus-within:border-${bg}-${600} rounded p-2 `
   )
 
   inputClasses.push(`bg-transparent`)
@@ -160,8 +165,9 @@ const Input_Contained = ({
   labelClasses.push(`text-xs text-gray-500`)
 
   inputClasses.push(
-    `border-${bg}-${bgNum + 100} hover:border-${bg}-${bgNum +
-      200} focus:border-${bg}-${600} outline-none`
+    `border-${bg}-${bgNum + 100} hover:border-${bg}-${
+      bgNum + 200
+    } focus:border-${bg}-${600} outline-none`
   )
 
   containerClasses.push(`transition transform-all`)
@@ -195,8 +201,9 @@ const Input_Outlined = ({
   const labelClasses: string[] = []
   const inputClasses = []
   inputClasses.push(
-    `border-2 border-${bg}-${bgNum +
-      100} focus-within:border-${bg}-${600}  p-2 `
+    `border-2 border-${bg}-${
+      bgNum + 100
+    } focus-within:border-${bg}-${600}  p-2 `
   )
 
   inputClasses.push(`bg-transparent`)
@@ -205,8 +212,9 @@ const Input_Outlined = ({
   labelClasses.push(`text-xs text-gray-500`)
 
   inputClasses.push(
-    `border-${bg}-${bgNum + 100} hover:border-${bg}-${bgNum +
-      200} focus:border-${bg}-${600} outline-none`
+    `border-${bg}-${bgNum + 100} hover:border-${bg}-${
+      bgNum + 200
+    } focus:border-${bg}-${600} outline-none`
   )
 
   containerClasses.push(`transition transform-all`)
