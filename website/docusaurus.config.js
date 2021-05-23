@@ -10,6 +10,10 @@ module.exports = {
   organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
   themeConfig: {
+    hideableSidebar: true,
+    colorMode: {
+      defaultMode: 'dark',
+    },
     navbar: {
       title: 'CadabraUI',
       logo: {
@@ -24,7 +28,7 @@ module.exports = {
           label: 'Docs',
         },
         {
-          href: 'https://github.com/ShubhamVerma1811/CadabraUI/tree/dev',
+          href: 'https://github.com/ShubhamVerma1811/CadabraUI',
           label: 'GitHub',
           position: 'right',
         },
@@ -47,12 +51,14 @@ module.exports = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/ShubhamVerma1811/CadabraUI/tree/dev',
+              href: 'https://github.com/ShubhamVerma1811/CadabraUI',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} CadabraUI, Built with Docusaurus. Hosted on Vercel`,
+      copyright: `Copyright © ${new Date().getFullYear()} CadabraUI
+      <br />
+      Made with ❤ by <a href="https://shubhamverma.me" target="_blank" rel="noreferrer noopener" aria-label="Shubham Verma portfolio link">Shubham Verma </a> using Docusaurus. Hosted on Vercel`,
     },
   },
   presets: [
