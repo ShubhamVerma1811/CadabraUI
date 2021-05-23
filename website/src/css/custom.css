@@ -28,6 +28,6 @@ a {
   color: var(--ifm-color-primary);
 }
 
-* {
+body {
   font-family: 'Karla', 'sans';
 }
