@@ -1,13 +1,10 @@
-import { Button } from '../../../.'
-import '../../src/css/custom.css'
+import { Button } from '../../../dist'
 
 # Button
 
 ## Usage
 
-```jsx
-import { Button } from "cadabraui"
-
+```jsx live
 <Button
   label='Button'
   variant='contained'
@@ -18,16 +15,6 @@ import { Button } from "cadabraui"
   onClick={() => alert('Hey there!')}
 />
 ```
-
-<Button
-  label='Button'
-  variant='contained'
-  color='pink'
-  colorNum='300'
-  size='base'
-  radius='md'
-  onClick={() => alert('Hey there!')}
-/>
 
 ---
 
@@ -37,7 +24,7 @@ Button variant can be access by using the `variant` attribute
 
 ### Contained
 
-```jsx
+```jsx live
 <Button
   label='Button'
   variant='contained'
@@ -47,21 +34,12 @@ Button variant can be access by using the `variant` attribute
   radius='md'
 />
 ```
-
-<Button
-  label='Button'
-  variant='contained'
-  color='pink'
-  colorNum='300'
-  size='base'
-  radius='md'
-/>
 
 ---
 
 ### Ghost
 
-```jsx
+```jsx live
 <Button
   label='Button'
   variant='ghost'
@@ -72,20 +50,11 @@ Button variant can be access by using the `variant` attribute
 />
 ```
 
-<Button
-  label='Button'
-  variant='ghost'
-  color='pink'
-  colorNum='300'
-  size='base'
-  radius='md'
-/>
-
 ---
 
 ### Text
 
-```jsx
+```jsx live
 <Button
   label='Button'
   variant='text'
@@ -96,19 +65,19 @@ Button variant can be access by using the `variant` attribute
 />
 ```
 
-<Button label='Button' variant='text' color='rose' colorNum='300' />
-
 ---
 
 ## Sizes
 
-```jsx
+The available sizes are 'xs' | 'sm' | 'base' | 'lg' |'xl'
+
+```jsx live
 <Button
   label='Button'
   variant='contained'
   color='pink'
   colorNum='300'
-  size='base' {/* 'xs' | 'sm' | 'base' | 'lg' |'xl' */}
+  size='base'
   radius='md'
 />
 ```
