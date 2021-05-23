@@ -1,6 +1,6 @@
 {
   "name": "cadabraui",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1-alpha.3",
   "license": "MIT",
   "author": "Shubham Verma",
   "description": "A React UI Component Librabry that generates the styles for you!",
