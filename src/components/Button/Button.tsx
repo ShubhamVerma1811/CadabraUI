@@ -1,169 +1,51 @@
-import React, { MouseEventHandler, ReactElement, ReactNode } from 'react'
-import rando from 'unique-random-array'
-import { ButtonVariants, Size, sizes } from '../../config/ButtonConfig'
-import { colors, fonts, GlobalProps, radiuses, range } from '../../config/theme'
-
-// TODO Figure out the types for the props - type unknown bad
+import React, { MouseEventHandler, ReactNode } from 'react'
+import { ButtonVariants, Size } from '../../config/ButtonConfig'
+import { GlobalProps, Radius } from '../../config/theme'
+import {
+  Button_Contained_Styles,
+  Button_Ghost_Styles,
+  Button_Text_Styles,
+} from './Button.styles'
 
 export type ButtonProps = GlobalProps & {
   label: string
   type?: 'button' | 'submit' | 'reset'
   variant: ButtonVariants
-  size?: Size
-  font?: unknown
-  radius?: unknown
   icon?: ReactNode
   iconRight?: ReactNode
   isDisabled?: boolean
   isLoading?: boolean
-  block?: boolean
   onClick?: MouseEventHandler<HTMLButtonElement>
+  size?: Size
+  radius?: Radius
+  font?: string
+  block?: boolean
 }
 
-const getSize = (size: string): string => {
-  if (size === 'sm') {
-    return `px-4 py-2 text-sm`
-  } else if (size === 'base') {
-    return `px-6 py-2 text-md`
-  } else if (size === 'lg') {
-    return `px-8 py-2 text-lg`
-  } else if (size === 'xl') {
-    return `px-10 py-3 text-xl`
-  } else {
-    return `px-2 py-1 text-xs`
-  }
-}
+export const Button = ({
+  label,
+  variant,
+  type,
+  onClick,
+  ...styleProps
+}: ButtonProps) => {
+  let className
 
-export const Button = (props: ButtonProps): ReactElement => {
-  // TODO Figure out a proper way to handle all variants with diff props nested if else bad
-  // TODO Add ICON variant
-  // TODO add sytles for isDisabled such that other styles are not applied
-
-  if (props.variant === 'ghost') {
-    return <Button_Ghost {...props} />
-  } else if (props.variant === 'text') {
-    return <Button_Text {...props} />
-  } else if (props.variant === 'contained') {
-    return <Button_Contained {...props} />
+  if (variant === 'contained') {
+    className = Button_Contained_Styles
+  } else if (variant === 'ghost') {
+    className = Button_Ghost_Styles
+  } else if (variant === 'text') {
+    className = Button_Text_Styles
   } else {
     throw new Error('Invalid variant')
-  }
-}
-
-const Button_Ghost = ({
-  label,
-  type = 'submit',
-  color = rando(colors)(),
-  colorNum = rando(range)(),
-  bg = rando(colors)(),
-  bgNum = rando(range)(),
-  size = rando(sizes)() as Size,
-  font = rando(fonts)(),
-  radius = rando(radiuses)(),
-  onClick,
-  block,
-}: ButtonProps) => {
-  const buttonClasses = []
-  buttonClasses.push(
-    `bg-none border-2 border-${bg}-${bgNum} hover:bg-${bg}-${bgNum}`
-  )
-  buttonClasses.push(`text-${color}-${colorNum} font-${font}`)
-
-  block && buttonClasses.push(`w-full`)
-  buttonClasses.push(getSize(size))
-
-  if (radius === 'DEFAULT') {
-    buttonClasses.push('rounded')
-  } else {
-    buttonClasses.push(`rounded-${radius}`)
-  }
-
-  return (
-    <div className={`${block && 'w-full'}`}>
-      <button
-        className={buttonClasses.join(' ')}
-        type={type}
-        role='button'
-        onClick={onClick}>
-        {label}
-      </button>
-    </div>
-  )
-}
-
-const Button_Contained = ({
-  label,
-  type = 'submit',
-  color = rando(colors)(),
-  colorNum = rando(range)(),
-  bg = rando(colors)(),
-  bgNum = rando(range)(),
-  size = rando(sizes)() as Size,
-  font = rando(fonts)(),
-  radius = rando(radiuses)(),
-  onClick,
-  block,
-}: ButtonProps) => {
-  const buttonClasses = []
-  buttonClasses.push(`bg-${bg}-${bgNum}`)
-  if (bgNum !== 900) {
-    buttonClasses.push(` hover:bg-${bg}-${bgNum + 100}`)
-  } else {
-    buttonClasses.push(` hover:bg-${bg}-${bgNum - 100}`)
-  }
-
-  buttonClasses.push(getSize(size))
-
-  if (radius === 'DEFAULT') {
-    buttonClasses.push('rounded')
-  } else {
-    buttonClasses.push(`rounded-${radius}`)
-  }
-
-  block && buttonClasses.push(`w-full`)
-  buttonClasses.push(`text-${color}-${colorNum} font-${font}`)
-
-  return (
-    <div className={`${block && 'w-full'}`}>
-      <button
-        className={buttonClasses.join(' ')}
-        type={type}
-        role='button'
-        onClick={onClick}>
-        {label}
-      </button>
-    </div>
-  )
-}
-
-const Button_Text = ({
-  label,
-  type = 'submit',
-  color = rando(colors)(),
-  colorNum = rando(range)(),
-  bg = rando(colors)(),
-  font = rando(fonts)(),
-  size = rando(sizes)() as Size,
-  radius = rando(radiuses)(),
-  onClick,
-}: ButtonProps) => {
-  const buttonClasses = []
-  buttonClasses.push(`p-0 hover:underline hover:bg-${bg}-${50}`)
-  buttonClasses.push(`text-${color}-${colorNum} font-${font}`)
-  buttonClasses.push(getSize(size))
-
-  if (radius === 'DEFAULT') {
-    buttonClasses.push('rounded')
-  } else {
-    buttonClasses.push(`rounded-${radius}`)
   }
 
   return (
     <div>
       <button
-        className={buttonClasses.join(' ')}
-        type={type}
-        role='button'
+        className={className(styleProps)}
+        type={type || 'submit'}
         onClick={onClick}>
         {label}
       </button>
