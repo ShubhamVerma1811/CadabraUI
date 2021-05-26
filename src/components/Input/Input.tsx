@@ -1,6 +1,11 @@
 import React, { ReactElement, ReactNode } from 'react'
-import rando from 'unique-random-array'
-import { colors, fonts, GlobalProps, range, Range } from '../../config/theme'
+import { GlobalProps } from '../../config/theme'
+import {
+  Input_Contained_Styles,
+  Input_Filled_Styles,
+  Input_Outlined_Styles,
+  Input_Underline_Styles,
+} from './Input.styles'
 
 const variants = ['underline', 'filled', 'contained', 'outlined'] as const
 type InputVariant = typeof variants[number]
@@ -23,214 +28,47 @@ export type InputProps = GlobalProps & {
   onChange?(e: React.ChangeEvent<HTMLInputElement>): void
 }
 
-export const Input = (props: InputProps): ReactElement => {
-  if (props.variant === 'underline') {
-    return <Input_Underline {...props} />
-  } else if (props.variant === 'filled') {
-    return <Input_Filled {...props} />
-  } else if (props.variant === 'contained') {
-    return <Input_Contained {...props} />
-  } else if (props.variant === 'outlined') {
-    return <Input_Outlined {...props} />
-  } else
-    throw new Error(
-      'Please enter a valid variant from Input. Entered variant name is ' +
-        props.variant
-    )
-
-  // GLOBAL CLASSES FOR THE ELEMENTS
-}
-
-const Input_Underline = ({
+export const Input = ({
   label,
-  value,
-  type,
-  onChange,
   placeholder,
-  font = rando(fonts)(),
-  bgNum = rando(range)(),
-  bg = rando(colors)(),
+  onChange,
+  required,
+  type,
+  value,
+  variant,
+  bg,
+  bgNum,
 }: InputProps): ReactElement => {
-  const containerClasses: string[] = []
-  const labelClasses: string[] = []
-  const inputClasses = []
+  let inputStyles: {
+    container: string
+    label: string
+    input: string
+  }
 
-  console.log(typeof onChange)
-
-  containerClasses.push(`flex flex-col justify-center font-${font}`)
-  labelClasses.push(`text-xs text-gray-500`)
-
-  inputClasses.push(`border-b-2  transition transform-all bg-transparent`)
-
-  inputClasses.push(
-    `border-${bg}-${bgNum + 100} hover:border-${bg}-${
-      bgNum + 200
-    } focus:border-${bg}-${600} outline-none`
-  )
-
-  containerClasses.push(`transition transform-all`)
+  if (variant === 'underline') {
+    inputStyles = { ...Input_Underline_Styles({ bg, bgNum }) }
+  } else if (variant === 'filled') {
+    inputStyles = { ...Input_Filled_Styles({ bg, bgNum }) }
+  } else if (variant === 'contained') {
+    inputStyles = { ...Input_Contained_Styles({ bg, bgNum }) }
+  } else if (variant === 'outlined') {
+    inputStyles = { ...Input_Outlined_Styles({ bg, bgNum }) }
+  } else throw new Error('Invalid variant')
 
   return (
-    <div className={containerClasses.join(' ')}>
+    <div className={inputStyles.container}>
       {label && (
-        <label className={labelClasses.join(' ')} htmlFor={label}>
+        <label className={inputStyles.label} htmlFor={label}>
           {label}
         </label>
       )}
       <input
+        className={inputStyles.input}
         value={value}
         type={type}
         placeholder={placeholder}
-        className={inputClasses.join(' ')}
         id={label && label}
-        onChange={onChange ? (event) => onChange(event) : undefined}
-      />
-    </div>
-  )
-}
-
-const Input_Filled = ({
-  label,
-  type,
-  placeholder,
-  font = rando(fonts)(),
-  bgNum = rando(range.slice(0, 3))() as Range,
-  bg = rando(colors)(),
-  required,
-  onChange,
-}: InputProps): ReactElement => {
-  const containerClasses: string[] = []
-  const labelClasses: string[] = []
-  const inputClasses = []
-  containerClasses.push(
-    `border-b-2 border-${bg}-${
-      bgNum + 200
-    } focus-within:border-${bg}-${600} rounded-t p-2 bg-${bg}-${bgNum} hover:bg-${bg}-${
-      bgNum + 100
-    }`
-  )
-
-  inputClasses.push(`bg-transparent`)
-
-  containerClasses.push(`flex flex-col justify-center font-${font}`)
-  labelClasses.push(`text-xs text-gray-500`)
-
-  inputClasses.push(
-    `border-${bg}-${bgNum + 100} hover:border-${bg}-${
-      bgNum + 200
-    } focus:border-${bg}-${600} outline-none`
-  )
-
-  containerClasses.push(`transition transform-all`)
-
-  return (
-    <div className={containerClasses.join(' ')}>
-      {label && (
-        <label className={labelClasses.join(' ')} htmlFor={label}>
-          {label}
-        </label>
-      )}
-      <input
-        type={type}
-        placeholder={placeholder}
-        className={inputClasses.join(' ')}
-        id={label && label}
-        onChange={onChange ? (event) => onChange(event) : undefined}
-        required={required && required}
-      />
-    </div>
-  )
-}
-
-const Input_Contained = ({
-  label,
-  type,
-  placeholder,
-  font = rando(fonts)(),
-  bgNum = rando(range)(),
-  bg = rando(colors)(),
-}: InputProps): ReactElement => {
-  const containerClasses: string[] = []
-  const labelClasses: string[] = []
-  const inputClasses = []
-  containerClasses.push(
-    `border-2 border-${bg}-${
-      bgNum + 100
-    } focus-within:border-${bg}-${600} rounded p-2 `
-  )
-
-  inputClasses.push(`bg-transparent`)
-
-  containerClasses.push(`flex flex-col justify-center font-${font}`)
-  labelClasses.push(`text-xs text-gray-500`)
-
-  inputClasses.push(
-    `border-${bg}-${bgNum + 100} hover:border-${bg}-${
-      bgNum + 200
-    } focus:border-${bg}-${600} outline-none`
-  )
-
-  containerClasses.push(`transition transform-all`)
-
-  return (
-    <div className={containerClasses.join(' ')}>
-      {label && (
-        <label className={labelClasses.join(' ')} htmlFor={label}>
-          {label}
-        </label>
-      )}
-      <input
-        type={type}
-        placeholder={placeholder}
-        className={inputClasses.join(' ')}
-        id={label && label}
-      />
-    </div>
-  )
-}
-
-const Input_Outlined = ({
-  label,
-  placeholder,
-  type,
-  font = rando(fonts)(),
-  bgNum = rando(range)(),
-  bg = rando(colors)(),
-}: InputProps): ReactElement => {
-  const containerClasses: string[] = []
-  const labelClasses: string[] = []
-  const inputClasses = []
-  inputClasses.push(
-    `border-2 border-${bg}-${
-      bgNum + 100
-    } focus-within:border-${bg}-${600}  p-2 `
-  )
-
-  inputClasses.push(`bg-transparent`)
-
-  containerClasses.push(`flex flex-col justify-center font-${font}`)
-  labelClasses.push(`text-xs text-gray-500`)
-
-  inputClasses.push(
-    `border-${bg}-${bgNum + 100} hover:border-${bg}-${
-      bgNum + 200
-    } focus:border-${bg}-${600} outline-none`
-  )
-
-  containerClasses.push(`transition transform-all`)
-
-  return (
-    <div className={containerClasses.join(' ')}>
-      {label && (
-        <label className={labelClasses.join(' ')} htmlFor={label}>
-          {label}
-        </label>
-      )}
-      <input
-        type={type}
-        placeholder={placeholder}
-        className={inputClasses.join(' ')}
-        id={label && label}
+        onChange={onChange ? event => onChange(event) : undefined}
       />
     </div>
   )

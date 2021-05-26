@@ -1,4 +1,5 @@
 [
+  "~clsx",
   "~react",
   "~tailwindcss/colors",
   "~tailwindcss/resolveConfig",
