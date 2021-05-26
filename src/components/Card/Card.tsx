@@ -1,6 +1,7 @@
 import React, { ReactElement, ReactNode } from 'react'
 import { Radius, Width } from '../../config/theme'
 import { Button } from '../Button/Button'
+import { Card_Styles } from './Card.styles'
 
 export type CardProps = {
   children: ReactNode
@@ -25,31 +26,15 @@ export const Card = ({
   raised,
   font = 'karla',
 }: CardProps): ReactElement => {
-  const containerClasses: string[] = []
-  const contextClasses: string[] = []
-  const titleClasses: string[] = []
-  const parentClasses: string[] = []
-
-  raised
-    ? containerClasses.push('shadow drop-shadow')
-    : containerClasses.push('border')
-
-  containerClasses.push(`container relative overflow-hidden font-${font}`)
-  containerClasses.push(`flex flex-col justify-center`)
-
-  radius && containerClasses.push(`rounded-${radius}`)
-
-  width && containerClasses.push(`w-${width}`)
-
-  padding &&
-    parentClasses.push(`parent p-${padding} flex flex-col justify-between`)
-
-  contextClasses.push(`context flex flex-col justify-between`)
-
-  if (title || subtitle) titleClasses.push(`title py-4`)
+  let className: {
+    container: string
+    context: string
+    title: string
+    parent: string
+  } = Card_Styles({ radius, padding, raised, width, title, subtitle, font })
 
   return (
-    <div className={containerClasses.join(' ')}>
+    <div className={className.container}>
       {headerImage && (
         <figure>
           <img
@@ -60,12 +45,12 @@ export const Card = ({
         </figure>
       )}
 
-      <div className={parentClasses.join(' ')}>
-        <div className={titleClasses.join(' ')}>
+      <div className={className.parent}>
+        <div className={className.title}>
           {title && <h1 className='text-2xl font-semibold'>{title}</h1>}
           {subtitle && <h2 className='font-normal text-sm'>{subtitle}</h2>}
         </div>
-        {children && <div className={contextClasses.join(' ')}>{children}</div>}
+        {children && <div className={className.context}>{children}</div>}
       </div>
     </div>
   )
