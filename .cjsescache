@@ -4,5 +4,5 @@
   "~tailwindcss/colors",
   "~tailwindcss/resolveConfig",
   "~unique-random-array",
-  "node_modules/style-inject/dist/style-inject.es.js"
+  "src/tailwind.css"
 ]
