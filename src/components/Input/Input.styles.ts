@@ -39,8 +39,9 @@ export const Input_Underline_Styles = ({
       'border-b-2',
       'bg-transparent',
       //@ts-ignore
-      `border-${bg}-${bgNum + 100} hover:border-${bg}-${bgNum +
-        200} focus:border-${bg}-${600} outline-none`
+      `border-${bg}-${bgNum + 100} hover:border-${bg}-${
+        bgNum + 200
+      } focus:border-${bg}-${600} outline-none`
     ),
   }
 }
@@ -59,9 +60,11 @@ export const Input_Filled_Styles = ({
       'transition',
       'transition-all',
       //@ts-ignore
-      `border-b-2 border-${bg}-${bgNum +
-        200} focus-within:border-${bg}-${600} rounded-t p-2 bg-${bg}-${bgNum} hover:bg-${bg}-${bgNum +
-        100}`
+      `border-b-2 border-${bg}-${
+        bgNum + 200
+      } focus-within:border-${bg}-${600} rounded-t p-2 bg-${bg}-${bgNum} hover:bg-${bg}-${
+        bgNum + 100
+      }`
     ),
     label: classnames('text-xs', 'text-gray-500'),
     input: classnames('bg-transparent', 'outline-none'),
@@ -92,8 +95,9 @@ export const Input_Contained_Styles = ({
       'bg-transparent',
       'outline-none',
       //@ts-ignore
-      `border-${bg}-${bgNum + 100} hover:border-${bg}-${bgNum +
-        200} focus:border-${bg}-${600}`
+      `border-${bg}-${bgNum + 100} hover:border-${bg}-${
+        bgNum + 200
+      } focus:border-${bg}-${600}`
     ),
   }
 }
@@ -117,8 +121,9 @@ export const Input_Outlined_Styles = ({
       'bg-transparent',
       'outline-none',
       //@ts-ignore
-      `border-${bg}-${bgNum + 100} hover:border-${bg}-${bgNum +
-        200} focus:border-${bg}-${600}`
+      `border-${bg}-${bgNum + 100} hover:border-${bg}-${
+        bgNum + 200
+      } focus:border-${bg}-${600}`
     ),
   }
 }

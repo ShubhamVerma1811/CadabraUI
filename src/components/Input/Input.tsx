@@ -74,7 +74,7 @@ export const Input = ({
         type={type}
         placeholder={placeholder}
         id={label && label}
-        onChange={onChange ? event => onChange(event) : undefined}
+        onChange={onChange ? (event) => onChange(event) : undefined}
       />
     </div>
   )
