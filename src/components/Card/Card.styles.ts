@@ -8,7 +8,7 @@ export const Card_Styles = ({
   title,
   subtitle,
   font,
-}) => {
+}: any) => {
   return {
     container: classnames(
       'relative',
@@ -18,8 +18,8 @@ export const Card_Styles = ({
       'justify-center',
       `font-${font}` as TArg,
       raised ? classnames('shadow', 'drop-shadow') : 'border',
-      radius && `rounded-${radius}`,
-      width && `w-${width}`
+      radius && (`rounded-${radius}` as TArg),
+      width && (`w-${width}` as TArg)
     ),
     context: classnames('flex', 'flex-col', 'justify-between'),
     title: (title || subtitle) && classnames('py-4'),
