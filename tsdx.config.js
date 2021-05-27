@@ -10,9 +10,8 @@ module.exports = {
         },
         extensions: ['.css'],
         minimize: true,
-        inject: {
-          insertAt: 'top',
-        },
+        inject: true,
+        extract: !!options.writeMeta,
       })
     ),
       config.plugins.push(
