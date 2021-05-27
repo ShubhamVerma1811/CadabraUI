@@ -25,6 +25,8 @@ export type InputProps = GlobalProps & {
   isDisabled?: boolean
   type?: 'text' | 'email' | 'password'
   required?: boolean
+  labelStyles?: string
+  placeholderStyles?: string
   onChange?(e: React.ChangeEvent<HTMLInputElement>): void
 }
 
@@ -32,6 +34,8 @@ export const Input = ({
   label,
   placeholder,
   onChange,
+  labelStyles,
+  placeholderStyles,
   required,
   type,
   value,
@@ -58,12 +62,14 @@ export const Input = ({
   return (
     <div className={inputStyles.container}>
       {label && (
-        <label className={inputStyles.label} htmlFor={label}>
+        <label
+          className={inputStyles.label + ' ' + labelStyles}
+          htmlFor={label}>
           {label}
         </label>
       )}
       <input
-        className={inputStyles.input}
+        className={inputStyles.input + ' ' + placeholderStyles}
         value={value}
         type={type}
         placeholder={placeholder}
